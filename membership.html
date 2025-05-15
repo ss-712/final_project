@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Membership - Panarin Boxing Gym</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="scripts.js" defer></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body>
+    <div class="topnav" id="myTopnav">
+        <a href="index.html">Home</a>
+        <a href="membership.html" class="active">Membership</a>
+        <a href="workouts.html">Workouts</a>
+        <a href="javascript:void(0);" class="icon" onclick="toggleNav()">
+            <i class="fa fa-bars"></i>
+        </a>
+    </div>
+
+
+    <div class="parallax-container membership-parallax">
+        <div class="hero-content">
+            <h1>JOIN OUR FAMILY</h1>
+            <p>Begin your boxing journey today</p>
+        </div>
+    </div>
+
+    <section class="membership-section">
+        <h2>MEMBERSHIP OPTIONS</h2>
+        <div class="membership-plans">
+            <div class="plan-card">
+                <h3>Basic</h3>
+                <p class="price">$49<span>/month</span></p>
+                <ul>
+                    <li>Access to gym facilities</li>
+                    <li>2 group classes per week</li>
+                    <li>Basic equipment usage</li>
+                    <li>Locker room access</li>
+                </ul>
+                <button class="select-plan" data-plan="Basic" onclick="selectPlan('Basic', 49)">Select Plan</button>
+            </div>
+            <div class="plan-card featured">
+                <div class="featured-tag">Most Popular</div>
+                <h3>Pro Fighter</h3>
+                <p class="price">$79<span>/month</span></p>
+                <ul>
+                    <li>Unlimited gym access</li>
+                    <li>Unlimited group classes</li>
+                    <li>All equipment usage</li>
+                    <li>1 personal training session/month</li>
+                    <li>Premium locker room access</li>
+                </ul>
+                <button class="select-plan" data-plan="Pro Fighter" onclick="selectPlan('Pro Fighter', 79)">Select Plan</button>
+            </div>
+            <div class="plan-card">
+                <h3>Champion</h3>
+                <p class="price">$129<span>/month</span></p>
+                <ul>
+                    <li>24/7 gym access</li>
+                    <li>Unlimited group classes</li>
+                    <li>All equipment usage</li>
+                    <li>4 personal training sessions/month</li>
+                    <li>Premium locker with towel service</li>
+                    <li>Nutrition consultation</li>
+                </ul>
+                <button class="select-plan" data-plan="Champion" onclick="selectPlan('Champion', 129)">Select Plan</button>
+            </div>
+        </div>
+    </section>
+
+    <section class="registration-section">
+        <h2>MEMBERSHIP REGISTRATION</h2>
+        <form id="membershipForm" onsubmit="return validateForm()">
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="firstName">First Name *</label>
+                    <input type="text" id="firstName" name="firstName" required>
+                    <span class="error-message" id="firstNameError"></span>
+                </div>
+                <div class="form-group">
+                    <label for="lastName">Last Name *</label>
+                    <input type="text" id="lastName" name="lastName" required>
+                    <span class="error-message" id="lastNameError"></span>
+                </div>
+            </div>
+            
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="email">Email *</label>
+                    <input type="email" id="email" name="email" required>
+                    <span class="error-message" id="emailError"></span>
+                </div>
+                <div class="form-group">
+                    <label for="phone">Phone Number *</label>
+                    <input type="tel" id="phone" name="phone" placeholder="(123) 456-7890" required>
+                    <span class="error-message" id="phoneError"></span>
+                </div>
+            </div>
+            
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="dob">Date of Birth *</label>
+                    <input type="date" id="dob" name="dob" required>
+                    <span class="error-message" id="dobError"></span>
+                </div>
+                <div class="form-group">
+                    <label for="gender">Gender</label>
+                    <select id="gender" name="gender">
+                        <option value="">Select</option>
+                        <option value="male">Male</option>
+                        <option value="female">Female</option>
+                        <option value="other">Other</option>
+                        <option value="prefer-not">Prefer not to say</option>
+                    </select>
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <label for="address">Address *</label>
+                <input type="text" id="address" name="address" required>
+                <span class="error-message" id="addressError"></span>
+            </div>
+            
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="city">City *</label>
+                    <input type="text" id="city" name="city" required>
+                    <span class="error-message" id="cityError"></span>
+                </div>
+                <div class="form-group">
+                    <label for="zipCode">Zip Code *</label>
+                    <input type="text" id="zipCode" name="zipCode" required>
+                    <span class="error-message" id="zipCodeError"></span>
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <label for="membershipPlan">Selected Plan *</label>
+                <input type="text" id="membershipPlan" name="membershipPlan" readonly required>
+                <span class="error-message" id="planError"></span>
+            </div>
+            
+            <div class="form-group">
+                <label for="experience">Boxing Experience</label>
+                <select id="experience" name="experience">
+                    <option value="beginner">Beginner (0-1 year)</option>
+                    <option value="intermediate">Intermediate (1-3 years)</option>
+                    <option value="advanced">Advanced (3+ years)</option>
+                    <option value="competitive">Competitive Fighter</option>
+                </select>
+            </div>
+            
+            <div class="form-group checkbox-group">
+                <label class="checkbox-container">
+                    <input type="checkbox" id="healthConsent" name="healthConsent" required>
+                    <span class="checkmark"></span>
+                    I confirm that I have no health conditions that would prevent me from participating in boxing training *
+                </label>
+                <span class="error-message" id="healthConsentError"></span>
+            </div>
+            
+            <div class="form-group checkbox-group">
+                <label class="checkbox-container">
+                    <input type="checkbox" id="termsConsent" name="termsConsent" required>
+                    <span class="checkmark"></span>
+                    I agree to the terms and conditions of Panarin Boxing Gym *
+                </label>
+                <span class="error-message" id="termsConsentError"></span>
+            </div>
+            
+            <div class="form-group">
+                <button type="submit" class="submit-button">Submit Registration</button>
+            </div>
+        </form>
+    </section>
+
+    <div id="thankYouModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2>Thank You for Registering!</h2>
+            <p>We're excited to welcome you to Panarin Boxing Gym.</p>
+            <p>A confirmation email has been sent to your inbox with all the details.</p>
+            <p>Our staff will contact you shortly to schedule your first session.</p>
+            <div class="modal-footer">
+                <button onclick="closeModal()">Close</button>
+            </div>
+        </div>
+    </div>
+
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-logo">
+                <h3>PANARIN BOXING GYM</h3>
+                <p>Train. Fight. Conquer.</p>
+            </div>
+            <div class="footer-links">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="membership.html">Membership</a></li>
+                    <li><a href="workouts.html">Workouts</a></li>
+                </ul>
+            </div>
+            <div class="footer-social">
+                <h4>Follow Us</h4>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Panarin Boxing Gym. All Rights Reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>

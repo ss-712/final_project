@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Workouts - Panarin Boxing Gym</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="scripts.js" defer></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body>
+    <div class="topnav" id="myTopnav">
+        <a href="index.html">Home</a>
+        <a href="membership.html">Membership</a>
+        <a href="workouts.html" class="active">Workouts</a>
+        <a href="javascript:void(0);" class="icon" onclick="toggleNav()">
+            <i class="fa fa-bars"></i>
+        </a>
+    </div>
+
+
+    <div class="parallax-container workouts-parallax">
+        <div class="hero-content">
+            <h1>OUR WORKOUTS</h1>
+            <p>Train like never before</p>
+        </div>
+    </div>
+
+
+    <section class="workouts-section">
+        <h2>TRAINING GALLERY</h2>
+        
+
+        <div class="workout-slideshow-container">
+            <div class="workout-slides fade">
+                <div class="numbertext">1 / 4</div>
+                <img src="workout1.jpg" alt="Boxing Workout 1">
+            </div>
+
+            <div class="workout-slides fade">
+                <div class="numbertext">2 / 4</div>
+                <img src="workout2.jpg" alt="Boxing Workout 2">
+            </div>
+
+            <div class="workout-slides fade">
+                <div class="numbertext">3 / 4</div>
+                <img src="workout3.jpg" alt="Boxing Workout 3">
+            </div>
+
+            <div class="workout-slides fade">
+                <div class="numbertext">4 / 4</div>
+                <img src="workout4.jpg" alt="Boxing Workout 4">
+            </div>
+
+
+            <a class="workout-prev" onclick="plusWorkoutSlides(-1)">&#10094;</a>
+            <a class="workout-next" onclick="plusWorkoutSlides(1)">&#10095;</a>
+        </div>
+        <br>
+
+        <div class="workout-dot-container">
+            <span class="workout-dot" onclick="currentWorkoutSlide(1)"></span>
+            <span class="workout-dot" onclick="currentWorkoutSlide(2)"></span>
+            <span class="workout-dot" onclick="currentWorkoutSlide(3)"></span>
+            <span class="workout-dot" onclick="currentWorkoutSlide(4)"></span>
+        </div>
+    </section>
+
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-logo">
+                <h3>PANARIN BOXING GYM</h3>
+                <p>Train. Fight. Conquer.</p>
+            </div>
+            <div class="footer-links">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="membership.html">Membership</a></li>
+                    <li><a href="workouts.html">Workouts</a></li>
+                </ul>
+            </div>
+            <div class="footer-social">
+                <h4>Follow Us</h4>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Panarin Boxing Gym. All Rights Reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
